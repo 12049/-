@@ -1201,40 +1201,138 @@
             display: inline-block;
         }
 
-        .notes-container textarea {
-            width: 100%;
-            height: 150px;
-            padding: 15px;
-            border-radius: var(--radius-sm);
-            border: 1px solid #ddd;
-            resize: none;
-            font-family: 'Tajawal', sans-serif;
-            transition: all 0.3s;
+        /* قسم الأساتذة الجديد */
+        .teachers-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
         }
 
-        .notes-container textarea:focus {
+        .teachers-section-title {
+            text-align: center;
+            color: var(--profile-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .teacher-profile-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .teacher-profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(248, 180, 0, 0.2);
-            outline: none;
         }
 
-        .save-notes {
-            background: var(--accent);
+        .teacher-profile-header {
+            background: var(--gradient-primary);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .teacher-profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            margin: 0 auto 15px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .teacher-profile-name {
+            font-size: 1.4rem;
             color: var(--white);
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--radius-sm);
-            margin-top: 15px;
-            transition: all 0.3s;
+            margin-bottom: 5px;
+        }
+
+        .teacher-profile-subject {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .teacher-profile-body {
+            padding: 1.5rem;
+        }
+
+        .teacher-profile-desc {
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .teacher-profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .teacher-profile-rating {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin: 15px 0;
+        }
+
+        .teacher-profile-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .teacher-action-btn {
             display: flex;
             align-items: center;
             gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
         }
 
-        .save-notes:hover {
-            background: #e6a800;
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        .teacher-action-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
         }
 
         /* ======== صفحة المكتبة ======== */
@@ -1293,6 +1391,88 @@
             color: var(--gray);
             margin-bottom: 15px;
             line-height: 1.7;
+        }
+
+        /* ملفات PDF */
+        .pdf-container {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            display: none;
+            margin-top: 30px;
+        }
+
+        .pdf-files {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .pdf-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .pdf-header i {
+            color: var(--danger);
+            font-size: 2rem;
+        }
+
+        .pdf-card h3 {
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+
+        .pdf-info {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+
+        .pdf-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .download-btn {
+            background: var(--success);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .view-btn {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         /* شريط وسائل التواصل - أسفل الصفحة الرئيسية */
@@ -1458,7 +1638,7 @@
 
         /* ======== التعديلات للجوال ======== */
         @media (max-width: 992px) {
-            .features-container, .subjects-container, .tests-container, .library-container {
+            .features-container, .subjects-container, .tests-container, .library-container, .teachers-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
             
@@ -1486,7 +1666,7 @@
                 margin-top: 70px;
             }
             
-            .features-container, .subjects-container, .tests-container, .library-container {
+            .features-container, .subjects-container, .tests-container, .library-container, .teachers-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1512,6 +1692,10 @@
             }
             
             .form-actions {
+                flex-direction: column;
+            }
+            
+            .teacher-profile-actions {
                 flex-direction: column;
             }
         }
@@ -1702,7 +1886,7 @@
             <h1 class="page-title">المكتبة العلمية</h1>
             
             <div class="library-container">
-                <div class="library-card" onclick="openPdf('m1')">
+                <div class="library-card" onclick="showPdfFiles('رياضيات')">
                     <div class="library-header">
                         <h2 class="library-name">الرياضيات</h2>
                         <p class="library-hours">24 مرجع تعليمي</p>
@@ -1713,7 +1897,7 @@
                     </div>
                 </div>
                 
-                <div class="library-card" onclick="openPdf('p1')">
+                <div class="library-card" onclick="showPdfFiles('فيزياء')">
                     <div class="library-header">
                         <h2 class="library-name">الفيزياء</h2>
                         <p class="library-hours">20 مرجع تعليمي</p>
@@ -1724,7 +1908,7 @@
                     </div>
                 </div>
                 
-                <div class="library-card" onclick="openPdf('c1')">
+                <div class="library-card" onclick="showPdfFiles('كيمياء')">
                     <div class="library-header">
                         <h2 class="library-name">الكيمياء</h2>
                         <p class="library-hours">18 مرجع تعليمي</p>
@@ -1734,6 +1918,17 @@
                         <a class="view-btn">فتح المكتبة</a>
                     </div>
                 </div>
+            </div>
+            
+            <!-- ملفات PDF -->
+            <div class="pdf-container" id="pdfContainer">
+                <h2 class="pdf-title" id="pdfTitle"></h2>
+                <div class="pdf-files" id="pdfFiles">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+                <button class="back-btn" onclick="backToLibrary()">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المكتبة
+                </button>
             </div>
         </div>
         
@@ -2026,6 +2221,85 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- معلمو الطالب -->
+                <div class="profile-section">
+                    <div class="section-header" onclick="toggleSection('teachersInfo')">
+                        <div class="section-title">
+                            <i class="fas fa-users section-icon"></i>
+                            <span>معلمو الطالب</span>
+                        </div>
+                        <div class="section-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="section-content" id="teachersInfo">
+                        <div class="teachers-container">
+                            <div class="teacher-card">
+                                <div class="teacher-avatar">
+                                    أ
+                                </div>
+                                <div class="teacher-info">
+                                    <h4>أحمد علي</h4>
+                                    <p>مدرس الرياضيات</p>
+                                    <div class="teacher-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>(4.5)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="teacher-card">
+                                <div class="teacher-avatar">
+                                    س
+                                </div>
+                                <div class="teacher-info">
+                                    <h4>سارة محمد</h4>
+                                    <p>مدرسة الفيزياء</p>
+                                    <div class="teacher-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="teacher-card">
+                                <div class="teacher-avatar">
+                                    خ
+                                </div>
+                                <div class="teacher-info">
+                                    <h4>خالد عبدالله</h4>
+                                    <p>مدرس الكيمياء</p>
+                                    <div class="teacher-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span>(4.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم الأساتذة الجديد -->
+            <div class="teachers-section">
+                <h2 class="teachers-section-title">أساتذة المنصة المتميزون</h2>
+                
+                <div class="teachers-grid" id="teachersGrid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
             </div>
         </div>
     </div>
@@ -2104,8 +2378,14 @@
         const finalScore = document.getElementById('finalScore');
         const resultMessage = document.getElementById('resultMessage');
         
+        // المكتبة
+        const pdfContainer = document.getElementById('pdfContainer');
+        const pdfFiles = document.getElementById('pdfFiles');
+        const pdfTitle = document.getElementById('pdfTitle');
+        
         // البروفايل
         const editProfileBtn = document.getElementById('editProfileBtn');
+        const teachersGrid = document.getElementById('teachersGrid');
         
         // ======== المتغيرات العامة ======== 
         let currentSubject = '';
@@ -2145,6 +2425,78 @@
                 { title: 'الكيمياء العضوية', videoId: 'c6' }
             ]
         };
+        
+        // بيانات ملفات PDF
+        const pdfFilesData = {
+            'رياضيات': [
+                { title: 'الجبر الخطي للمبتدئين', fileId: 'math1', pages: 120, size: '5.2MB' },
+                { title: 'الهندسة الإقليدية', fileId: 'math2', pages: 95, size: '4.1MB' },
+                { title: 'حساب التفاضل والتكامل', fileId: 'math3', pages: 180, size: '8.7MB' },
+                { title: 'الإحصاء والاحتمالات', fileId: 'math4', pages: 110, size: '4.9MB' },
+                { title: 'المعادلات التفاضلية', fileId: 'math5', pages: 150, size: '7.3MB' },
+                { title: 'التحليل العددي', fileId: 'math6', pages: 130, size: '6.2MB' }
+            ],
+            'فيزياء': [
+                { title: 'ميكانيكا الكم', fileId: 'physics1', pages: 200, size: '9.8MB' },
+                { title: 'الكهرومغناطيسية', fileId: 'physics2', pages: 180, size: '8.5MB' },
+                { title: 'الديناميكا الحرارية', fileId: 'physics3', pages: 150, size: '7.1MB' },
+                { title: 'البصريات والضوء', fileId: 'physics4', pages: 120, size: '5.7MB' },
+                { title: 'فيزياء الجوامد', fileId: 'physics5', pages: 170, size: '8.1MB' },
+                { title: 'النسبية العامة', fileId: 'physics6', pages: 160, size: '7.8MB' }
+            ],
+            'كيمياء': [
+                { title: 'الكيمياء العضوية', fileId: 'chemistry1', pages: 190, size: '9.2MB' },
+                { title: 'الكيمياء التحليلية', fileId: 'chemistry2', pages: 140, size: '6.8MB' },
+                { title: 'كيمياء الكم', fileId: 'chemistry3', pages: 180, size: '8.7MB' },
+                { title: 'الكيمياء الحيوية', fileId: 'chemistry4', pages: 160, size: '7.6MB' },
+                { title: 'كيمياء البوليمرات', fileId: 'chemistry5', pages: 130, size: '6.3MB' },
+                { title: 'كيمياء البيئة', fileId: 'chemistry6', pages: 150, size: '7.1MB' }
+            ]
+        };
+        
+        // بيانات الأساتذة
+        const teachersData = [
+            {
+                id: 1,
+                name: "أحمد علي",
+                subject: "الرياضيات",
+                experience: "10 سنوات",
+                rating: 4.5,
+                students: 1250,
+                courses: 24,
+                description: "مدرس رياضيات بخبرة 10 سنوات في تدريس المناهج المتقدمة. حاصل على درجة الماجستير في الرياضيات التطبيقية. أساليبه التدريسية ممتعة وتفاعلية تساعد الطلاب على فهم المفاهيم المعقدة بسهولة."
+            },
+            {
+                id: 2,
+                name: "سارة محمد",
+                subject: "الفيزياء",
+                experience: "8 سنوات",
+                rating: 5,
+                students: 980,
+                courses: 18,
+                description: "مدرسة فيزياء حاصلة على جوائز في التميز التدريسي. تخصصت في الفيزياء النظرية وتتميز بقدرتها على تبسيط المفاهيم المعقدة. منهجها يعتمد على التجارب العملية والتطبيقات الواقعية."
+            },
+            {
+                id: 3,
+                name: "خالد عبدالله",
+                subject: "الكيمياء",
+                experience: "7 سنوات",
+                rating: 4,
+                students: 850,
+                courses: 15,
+                description: "مدرس كيمياء متخصص في الكيمياء العضوية والتحليلية. حاصل على الدكتوراه في الكيمياء الحيوية. يقدم محتوى تعليمي غني بالتجارب العملية والتمارين التفاعلية التي تعزز فهم الطلاب للمادة."
+            },
+            {
+                id: 4,
+                name: "نورا حسن",
+                subject: "الرياضيات",
+                experience: "6 سنوات",
+                rating: 4.7,
+                students: 1100,
+                courses: 20,
+                description: "مدرسة رياضيات متخصصة في الجبر والهندسة. تتميز بأساليبها الإبداعية في تدريس المفاهيم الرياضية المعقدة. حاصلة على عدة جوائز في التميز التدريسي على مستوى المنطقة."
+            }
+        ];
         
         // بيانات الاختبارات من ملفات JSON
         const quizzesData = {
@@ -2249,6 +2601,11 @@
             } else {
                 socialFooter.classList.remove('show');
             }
+            
+            // إذا كانت صفحة البروفايل، عرض الأساتذة
+            if (pageIndex === 4) {
+                renderTeachers();
+            }
         }
         
         // إضافة أحداث النقر للأزرار
@@ -2317,6 +2674,123 @@
             videoContainer.style.display = 'none';
             lessonsContainer.style.display = 'grid';
             lessonVideo.pause();
+        }
+        
+        // ======== إدارة المكتبة ========
+        function showPdfFiles(subject) {
+            currentSubject = subject;
+            document.querySelector('.library-container').style.display = 'none';
+            pdfContainer.style.display = 'block';
+            pdfTitle.textContent = `ملفات ${subject}`;
+            pdfFiles.innerHTML = '';
+            
+            // ملء الملفات
+            pdfFilesData[subject].forEach(pdf => {
+                const pdfCard = document.createElement('div');
+                pdfCard.className = 'pdf-card';
+                pdfCard.innerHTML = `
+                    <div class="pdf-header">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>${pdf.title}</h3>
+                    </div>
+                    <div class="pdf-info">
+                        <span><i class="fas fa-file"></i> ${pdf.pages} صفحة</span>
+                        <span><i class="fas fa-weight-hanging"></i> ${pdf.size}</span>
+                    </div>
+                    <div class="pdf-actions">
+                        <button class="view-btn" onclick="openPdf('${pdf.fileId}')">
+                            <i class="fas fa-eye"></i> معاينة
+                        </button>
+                        <button class="download-btn" onclick="downloadPdf('${pdf.fileId}')">
+                            <i class="fas fa-download"></i> تحميل
+                        </button>
+                    </div>
+                `;
+                pdfFiles.appendChild(pdfCard);
+            });
+        }
+        
+        function backToLibrary() {
+            pdfContainer.style.display = 'none';
+            document.querySelector('.library-container').style.display = 'grid';
+        }
+        
+        function openPdf(pdfId) {
+            // في التطبيق الحقيقي، هنا يتم فتح ملف PDF
+            window.open(`pdf/${pdfId}.pdf`, '_blank');
+        }
+        
+        function downloadPdf(pdfId) {
+            // في التطبيق الحقيقي، هنا يتم تنزيل ملف PDF
+            alert(`سيتم تنزيل ملف PDF: ${pdfId}.pdf`);
+        }
+        
+        // ======== إدارة الأساتذة ========
+        function renderTeachers() {
+            teachersGrid.innerHTML = '';
+            
+            teachersData.forEach(teacher => {
+                // إنشاء بطاقة الأستاذ
+                const teacherCard = document.createElement('div');
+                teacherCard.className = 'teacher-profile-card';
+                
+                // توليد نجوم التقييم
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= Math.floor(teacher.rating)) {
+                        starsHtml += '<i class="fas fa-star"></i>';
+                    } else if (i - 0.5 === teacher.rating) {
+                        starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        starsHtml += '<i class="far fa-star"></i>';
+                    }
+                }
+                
+                // إضافة محتوى البطاقة
+                teacherCard.innerHTML = `
+                    <div class="teacher-profile-header">
+                        <div class="teacher-profile-avatar">
+                            ${teacher.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <h3 class="teacher-profile-name">${teacher.name}</h3>
+                        <p class="teacher-profile-subject">${teacher.subject}</p>
+                    </div>
+                    <div class="teacher-profile-body">
+                        <p class="teacher-profile-desc">${teacher.description}</p>
+                        
+                        <div class="teacher-profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">${teacher.experience}</div>
+                                <div class="stat-label">خبرة تدريس</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">${teacher.students}+</div>
+                                <div class="stat-label">طلاب</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">${teacher.courses}</div>
+                                <div class="stat-label">دورة</div>
+                            </div>
+                        </div>
+                        
+                        <div class="teacher-profile-rating">
+                            ${starsHtml}
+                            <span>${teacher.rating}</span>
+                        </div>
+                        
+                        <div class="teacher-profile-actions">
+                            <button class="teacher-action-btn">
+                                <i class="fas fa-book"></i> دورات الأستاذ
+                            </button>
+                            <button class="teacher-action-btn">
+                                <i class="fas fa-comment"></i> تواصل
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                teachersGrid.appendChild(teacherCard);
+            });
         }
         
         // ======== إدارة الاختبارات ========
@@ -2545,12 +3019,6 @@
             }
         }
         
-        // فتح ملف PDF
-        function openPdf(pdfId) {
-            // في التطبيق الحقيقي، هنا يتم فتح ملف PDF
-            window.open(`pdf/${pdfId}.pdf`, '_blank');
-        }
-        
         // ======== إدارة الصوت ========
         function toggleMute() {
             isMuted = !isMuted;
@@ -2599,7 +3067,7 @@
         // ======== تهيئة التطبيق ========
         window.addEventListener('DOMContentLoaded', () => {
             // إضافة تأثيرات للبطاقات
-            const cards = document.querySelectorAll('.feature-card, .subject-card, .test-card, .library-card');
+            const cards = document.querySelectorAll('.feature-card, .subject-card, .test-card, .library-card, .teacher-profile-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', () => {
                     card.style.transform = 'translateY(-10px)';
@@ -2621,12 +3089,10 @@
             
             // إظهار شريط التواصل في الصفحة الرئيسية
             socialFooter.classList.add('show');
+            
+            // عرض الأساتذة في البروفايل
+            renderTeachers();
         });
     </script>
-    
-    <!-- أحبك يا مبرمجي العزيز -->
-    <div style="display: none;">أحبككك</div>
 </body>
 </html>
-
-
