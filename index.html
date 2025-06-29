@@ -750,6 +750,15 @@
             opacity: 0.9;
         }
 
+        /* دروس الاختبارات */
+        .test-lessons-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
         /* اختبار تفاعلي */
         .quiz-container {
             display: none;
@@ -1261,89 +1270,36 @@
         .library-header {
             background: var(--gradient-library);
             color: var(--white);
-            padding: 1.2rem;
+            padding: 1.5rem;
             text-align: center;
         }
 
         .library-name {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 5px;
+        }
+
+        .library-hours {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
         .library-body {
             padding: 1.5rem;
+            text-align: center;
         }
 
-        .file-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .file-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: var(--radius-sm);
-            background: var(--light-gray);
-            transition: all 0.3s;
-        }
-
-        .file-item:hover {
-            background: rgba(52, 152, 219, 0.1);
-            transform: translateX(5px);
-        }
-
-        .file-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-sm);
-            background: rgba(52, 152, 219, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            color: var(--library-primary);
-            font-size: 1.2rem;
-        }
-
-        .file-info {
-            flex: 1;
-        }
-
-        .file-title {
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 3px;
-        }
-
-        .file-meta {
-            display: flex;
-            justify-content: space-between;
+        .library-desc {
             color: var(--gray);
-            font-size: 0.85rem;
-        }
-
-        .download-btn {
-            background: var(--library-primary);
-            color: var(--white);
-            border-radius: var(--radius-sm);
-            padding: 6px 12px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            line-height: 1.7;
         }
 
         /* شريط وسائل التواصل - أسفل الصفحة الرئيسية */
         .social-footer {
             background: var(--gradient-primary);
             color: var(--white);
-            padding: 20px 0; /* تقليل الحجم */
+            padding: 10px 0; /* تقليل الحجم */
             margin-top: 50px;
             display: none;
         }
@@ -1362,27 +1318,27 @@
         }
 
         .social-title {
-            font-size: 1.2rem; /* تصغير الحجم */
-            margin-bottom: 15px; /* تقليل المسافة */
+            font-size: 0.9rem; /* تصغير الحجم */
+            margin-bottom: 10px; /* تقليل المسافة */
             text-align: center;
         }
 
         .social-icons {
             display: flex;
-            gap: 10px; /* تقليل المسافة بين الأيقونات */
+            gap: 8px; /* تقليل المسافة بين الأيقونات */
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 40px; /* تصغير الحجم */
-            height: 40px; /* تصغير الحجم */
+            width: 35px; /* تصغير الحجم */
+            height: 35px; /* تصغير الحجم */
             border-radius: var(--radius-circle);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 1.2rem; /* تصغير حجم الأيقونة */
+            font-size: 1rem; /* تصغير حجم الأيقونة */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
@@ -1416,6 +1372,61 @@
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
         }
         .social-icon.whatsapp { background: var(--social-whatsapp); }
+
+        /* نماذج التعديل */
+        .edit-form {
+            display: none;
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--profile-primary);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-save {
+            background: var(--success);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+        }
+
+        .btn-cancel {
+            background: var(--gray);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+        }
+
+        .btn-delete {
+            background: var(--danger);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+        }
 
         /* ======== الرسوم المتحركة ======== */
         @keyframes fadeIn {
@@ -1498,6 +1509,10 @@
             
             .teachers-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
             }
         }
     </style>
@@ -1642,28 +1657,6 @@
                         <a class="view-btn">عرض الدروس</a>
                     </div>
                 </div>
-                
-                <div class="subject-card" onclick="showLessons('أحياء')">
-                    <div class="subject-header">
-                        <h2 class="subject-name">الأحياء</h2>
-                        <p class="subject-hours">16 ساعة تعليمية</p>
-                    </div>
-                    <div class="subject-body">
-                        <p class="subject-desc">دراسة الكائنات الحية ووظائفها وتفاعلاتها مع البيئة وتطورها</p>
-                        <a class="view-btn">عرض الدروس</a>
-                    </div>
-                </div>
-                
-                <div class="subject-card" onclick="showLessons('لغة عربية')">
-                    <div class="subject-header">
-                        <h2 class="subject-name">اللغة العربية</h2>
-                        <p class="subject-hours">20 ساعة تعليمية</p>
-                    </div>
-                    <div class="subject-body">
-                        <p class="subject-desc">تطوير مهارات القراءة والكتابة والقواعد النحوية والصرفية</p>
-                        <a class="view-btn">عرض الدروس</a>
-                    </div>
-                </div>
             </div>
             
             <!-- دروس المادة -->
@@ -1709,171 +1702,36 @@
             <h1 class="page-title">المكتبة العلمية</h1>
             
             <div class="library-container">
-                <div class="library-card">
+                <div class="library-card" onclick="openPdf('m1')">
                     <div class="library-header">
-                        <h3 class="library-name">الرياضيات</h3>
-                        <p>ملفات PDF ومراجع دراسية</p>
+                        <h2 class="library-name">الرياضيات</h2>
+                        <p class="library-hours">24 مرجع تعليمي</p>
                     </div>
                     <div class="library-body">
-                        <ul class="file-list">
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الجبر الخطي - الجزء الأول</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>2.4MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('m1')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الهندسة التحليلية</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>1.8MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('m2')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">حساب التفاضل والتكامل</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>3.2MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('m3')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                        </ul>
+                        <p class="library-desc">مراجع شاملة في الجبر والهندسة وحساب التفاضل والتكامل</p>
+                        <a class="view-btn">فتح المكتبة</a>
                     </div>
                 </div>
                 
-                <div class="library-card">
+                <div class="library-card" onclick="openPdf('p1')">
                     <div class="library-header">
-                        <h3 class="library-name">الفيزياء</h3>
-                        <p>ملفات PDF ومراجع دراسية</p>
+                        <h2 class="library-name">الفيزياء</h2>
+                        <p class="library-hours">20 مرجع تعليمي</p>
                     </div>
                     <div class="library-body">
-                        <ul class="file-list">
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الميكانيكا الكلاسيكية</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>2.1MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('p1')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الكهرومغناطيسية</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>2.7MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('p2')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الفيزياء الحديثة</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>1.9MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('p3')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                        </ul>
+                        <p class="library-desc">كتب في الميكانيكا والكهرومغناطيسية والفيزياء الحديثة</p>
+                        <a class="view-btn">فتح المكتبة</a>
                     </div>
                 </div>
                 
-                <div class="library-card">
+                <div class="library-card" onclick="openPdf('c1')">
                     <div class="library-header">
-                        <h3 class="library-name">الكيمياء</h3>
-                        <p>ملفات PDF ومراجع دراسية</p>
+                        <h2 class="library-name">الكيمياء</h2>
+                        <p class="library-hours">18 مرجع تعليمي</p>
                     </div>
                     <div class="library-body">
-                        <ul class="file-list">
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الكيمياء العضوية</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>2.3MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('c1')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الكيمياء التحليلية</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>1.7MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('c2')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                            <li class="file-item">
-                                <div class="file-icon">
-                                    <i class="fas fa-file-pdf"></i>
-                                </div>
-                                <div class="file-info">
-                                    <div class="file-title">الكيمياء الفيزيائية</div>
-                                    <div class="file-meta">
-                                        <span>PDF</span>
-                                        <span>2.5MB</span>
-                                    </div>
-                                </div>
-                                <button class="download-btn" onclick="openPdf('c3')">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </li>
-                        </ul>
+                        <p class="library-desc">مراجع في الكيمياء العضوية واللاعضوية والتحليلية</p>
+                        <a class="view-btn">فتح المكتبة</a>
                     </div>
                 </div>
             </div>
@@ -1884,7 +1742,7 @@
             <h1 class="page-title">الاختبارات التفاعلية</h1>
             
             <div class="tests-container" id="testsContainer">
-                <div class="test-card" onclick="startQuiz('رياضيات')">
+                <div class="test-card" onclick="showTestLessons('رياضيات')">
                     <div class="test-header">
                         <h2 class="test-name">رياضيات</h2>
                         <p class="test-type">اختبار نهائي</p>
@@ -1895,7 +1753,7 @@
                     </div>
                 </div>
                 
-                <div class="test-card" onclick="startQuiz('فيزياء')">
+                <div class="test-card" onclick="showTestLessons('فيزياء')">
                     <div class="test-header">
                         <h2 class="test-name">فيزياء</h2>
                         <p class="test-type">اختبار نهائي</p>
@@ -1906,7 +1764,7 @@
                     </div>
                 </div>
                 
-                <div class="test-card" onclick="startQuiz('كيمياء')">
+                <div class="test-card" onclick="showTestLessons('كيمياء')">
                     <div class="test-header">
                         <h2 class="test-name">كيمياء</h2>
                         <p class="test-type">اختبار نهائي</p>
@@ -1916,28 +1774,11 @@
                         <a class="view-btn">بدء الاختبار</a>
                     </div>
                 </div>
-                
-                <div class="test-card" onclick="startQuiz('أحياء')">
-                    <div class="test-header">
-                        <h2 class="test-name">أحياء</h2>
-                        <p class="test-type">اختبار نهائي</p>
-                    </div>
-                    <div class="subject-body">
-                        <p class="subject-desc">اختبر معلوماتك في الأحياء عبر 5 أسئلة تفاعلية</p>
-                        <a class="view-btn">بدء الاختبار</a>
-                    </div>
-                </div>
-                
-                <div class="test-card" onclick="startQuiz('لغة عربية')">
-                    <div class="test-header">
-                        <h2 class="test-name">لغة عربية</h2>
-                        <p class="test-type">اختبار نهائي</p>
-                    </div>
-                    <div class="subject-body">
-                        <p class="subject-desc">اختبر معلوماتك في اللغة العربية عبر 5 أسئلة تفاعلية</p>
-                        <a class="view-btn">بدء الاختبار</a>
-                    </div>
-                </div>
+            </div>
+            
+            <!-- دروس الاختبارات -->
+            <div class="test-lessons-container" id="testLessonsContainer">
+                <!-- سيتم ملؤها بالجافاسكريبت -->
             </div>
             
             <!-- اختبار تفاعلي -->
@@ -2021,7 +1862,7 @@
                                     <i class="fas fa-user"></i>
                                     الاسم الكامل
                                 </div>
-                                <div class="info-value">محمد أحمد محمد</div>
+                                <div class="info-value" id="fullNameValue">محمد أحمد محمد</div>
                                 <i class="fas fa-edit edit-info" onclick="editInfo('fullName')"></i>
                             </div>
                             <div class="info-item">
@@ -2029,7 +1870,7 @@
                                     <i class="fas fa-user-tag"></i>
                                     النسبة
                                 </div>
-                                <div class="info-value">العلوم الطبيعية</div>
+                                <div class="info-value" id="ratioValue">العلوم الطبيعية</div>
                                 <i class="fas fa-edit edit-info" onclick="editInfo('ratio')"></i>
                             </div>
                             <div class="info-item">
@@ -2037,7 +1878,7 @@
                                     <i class="fas fa-id-card"></i>
                                     رقم الهوية
                                 </div>
-                                <div class="info-value">123456789</div>
+                                <div class="info-value" id="idValue">123456789</div>
                                 <i class="fas fa-edit edit-info" onclick="editInfo('id')"></i>
                             </div>
                             <div class="info-item">
@@ -2045,8 +1886,60 @@
                                     <i class="fas fa-key"></i>
                                     الرقم السري
                                 </div>
-                                <div class="info-value">●●●●●●</div>
+                                <div class="info-value" id="passwordValue">●●●●●●</div>
                                 <i class="fas fa-edit edit-info" onclick="editInfo('password')"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- نموذج تعديل الاسم الكامل -->
+                        <div class="edit-form" id="fullNameForm">
+                            <div class="form-group">
+                                <label for="fullNameInput">الاسم الكامل</label>
+                                <input type="text" id="fullNameInput" value="محمد أحمد محمد">
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-save" onclick="saveInfo('fullName')">حفظ</button>
+                                <button class="btn-cancel" onclick="cancelEdit('fullName')">إلغاء</button>
+                                <button class="btn-delete" onclick="deleteInfo('fullName')">حذف</button>
+                            </div>
+                        </div>
+                        
+                        <!-- نموذج تعديل النسبة -->
+                        <div class="edit-form" id="ratioForm">
+                            <div class="form-group">
+                                <label for="ratioInput">النسبة</label>
+                                <input type="text" id="ratioInput" value="العلوم الطبيعية">
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-save" onclick="saveInfo('ratio')">حفظ</button>
+                                <button class="btn-cancel" onclick="cancelEdit('ratio')">إلغاء</button>
+                                <button class="btn-delete" onclick="deleteInfo('ratio')">حذف</button>
+                            </div>
+                        </div>
+                        
+                        <!-- نموذج تعديل رقم الهوية -->
+                        <div class="edit-form" id="idForm">
+                            <div class="form-group">
+                                <label for="idInput">رقم الهوية</label>
+                                <input type="text" id="idInput" value="123456789">
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-save" onclick="saveInfo('id')">حفظ</button>
+                                <button class="btn-cancel" onclick="cancelEdit('id')">إلغاء</button>
+                                <button class="btn-delete" onclick="deleteInfo('id')">حذف</button>
+                            </div>
+                        </div>
+                        
+                        <!-- نموذج تعديل الرقم السري -->
+                        <div class="edit-form" id="passwordForm">
+                            <div class="form-group">
+                                <label for="passwordInput">الرقم السري</label>
+                                <input type="password" id="passwordInput" placeholder="أدخل الرقم السري الجديد">
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-save" onclick="saveInfo('password')">حفظ</button>
+                                <button class="btn-cancel" onclick="cancelEdit('password')">إلغاء</button>
+                                <button class="btn-delete" onclick="deleteInfo('password')">حذف</button>
                             </div>
                         </div>
                     </div>
@@ -2131,114 +2024,6 @@
                                 <div class="progress-fill" style="width: 85%"></div>
                             </div>
                         </div>
-                        
-                        <div class="progress-container">
-                            <div class="progress-title">
-                                <span>الأحياء</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 50%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="progress-container">
-                            <div class="progress-title">
-                                <span>اللغة العربية</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- معلمو الطالب -->
-                <div class="profile-section">
-                    <div class="section-header" onclick="toggleSection('teachersInfo')">
-                        <div class="section-title">
-                            <i class="fas fa-chalkboard-teacher section-icon"></i>
-                            <span>معلمو الطالب</span>
-                        </div>
-                        <div class="section-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="section-content" id="teachersInfo">
-                        <div class="teachers-container">
-                            <div class="teacher-card">
-                                <div class="teacher-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="teacher-info">
-                                    <h4>أ. أحمد سليمان</h4>
-                                    <p>مدرس الرياضيات</p>
-                                    <div class="teacher-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <span class="teacher-subject">الرياضيات</span>
-                                </div>
-                            </div>
-                            
-                            <div class="teacher-card">
-                                <div class="teacher-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="teacher-info">
-                                    <h4>أ. سارة محمد</h4>
-                                    <p>مدرسة الفيزياء</p>
-                                    <div class="teacher-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="teacher-subject">الفيزياء</span>
-                                </div>
-                            </div>
-                            
-                            <div class="teacher-card">
-                                <div class="teacher-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="teacher-info">
-                                    <h4>أ. خالد حسن</h4>
-                                    <p>مدرس الكيمياء</p>
-                                    <div class="teacher-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="teacher-subject">الكيمياء</span>
-                                </div>
-                            </div>
-                            
-                            <div class="teacher-card">
-                                <div class="teacher-avatar">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="teacher-info">
-                                    <h4>أ. لينا علي</h4>
-                                    <p>مدرسة اللغة العربية</p>
-                                    <div class="teacher-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="teacher-subject">اللغة العربية</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2307,6 +2092,7 @@
         
         // الاختبارات
         const testsContainer = document.getElementById('testsContainer');
+        const testLessonsContainer = document.getElementById('testLessonsContainer');
         const quizContainer = document.getElementById('quizContainer');
         const questionText = document.getElementById('questionText');
         const optionsContainer = document.getElementById('optionsContainer');
@@ -2357,160 +2143,90 @@
                 { title: 'التفاعلات الكيميائية', videoId: 'c4' },
                 { title: 'الكيمياء الحرارية', videoId: 'c5' },
                 { title: 'الكيمياء العضوية', videoId: 'c6' }
-            ],
-            'أحياء': [
-                { title: 'المقدمة في الأحياء', videoId: 'b1' },
-                { title: 'الخلية وتركيبها', videoId: 'b2' },
-                { title: 'علم الوراثة', videoId: 'b3' },
-                { title: 'التطور والتصنيف', videoId: 'b4' },
-                { title: 'علم البيئة', videoId: 'b5' },
-                { title: 'علم النبات', videoId: 'b6' }
-            ],
-            'لغة عربية': [
-                { title: 'المقدمة في النحو', videoId: 'a1' },
-                { title: 'الإعراب والبناء', videoId: 'a2' },
-                { title: 'الجملة الاسمية', videoId: 'a3' },
-                { title: 'الجملة الفعلية', videoId: 'a4' },
-                { title: 'الصرف', videoId: 'a5' },
-                { title: 'البلاغة', videoId: 'a6' }
             ]
         };
         
-        // بيانات الاختبارات
+        // بيانات الاختبارات من ملفات JSON
         const quizzesData = {
             'رياضيات': [
                 {
-                    question: 'ما هي نتيجة جمع العددين 15 و 27؟',
-                    options: ['32', '42', '52', '62'],
-                    answer: 1
+                    "question": "ما هي نتيجة جمع العددين 15 و 27؟",
+                    "options": ["32", "42", "52", "62"],
+                    "answer": 1
                 },
                 {
-                    question: 'ما هو محيط الدائرة التي نصف قطرها 7 سم؟ (ط ≈ 3.14)',
-                    options: ['14 سم', '21.98 سم', '43.96 سم', '153.86 سم'],
-                    answer: 2
+                    "question": "ما هو محيط الدائرة التي نصف قطرها 7 سم؟ (ط ≈ 3.14)",
+                    "options": ["14 سم", "21.98 سم", "43.96 سم", "153.86 سم"],
+                    "answer": 2
                 },
                 {
-                    question: 'ما هو حل المعادلة: 3س + 5 = 20؟',
-                    options: ['س = 3', 'س = 5', 'س = 7', 'س = 9'],
-                    answer: 1
+                    "question": "ما هو حل المعادلة: 3س + 5 = 20؟",
+                    "options": ["س = 3", "س = 5", "س = 7", "س = 9"],
+                    "answer": 1
                 },
                 {
-                    question: 'ما هو مربع العدد 9؟',
-                    options: ['18', '27', '81', '729'],
-                    answer: 2
+                    "question": "ما هو مربع العدد 9؟",
+                    "options": ["18", "27", "81", "729"],
+                    "answer": 2
                 },
                 {
-                    question: 'ما هو العدد الأولي من الأعداد التالية؟',
-                    options: ['15', '21', '23', '27'],
-                    answer: 2
+                    "question": "ما هو العدد الأولي من الأعداد التالية؟",
+                    "options": ["15", "21", "23", "27"],
+                    "answer": 2
                 }
             ],
             'فيزياء': [
                 {
-                    question: 'ما هي وحدة قياس القوة في النظام الدولي؟',
-                    options: ['جول', 'نيوتن', 'واط', 'باسكال'],
-                    answer: 1
+                    "question": "ما هي وحدة قياس القوة في النظام الدولي؟",
+                    "options": ["جول", "نيوتن", "واط", "باسكال"],
+                    "answer": 1
                 },
                 {
-                    question: 'ما هي سرعة الضوء في الفراغ تقريبًا؟',
-                    options: ['300 كم/ث', '3,000 كم/ث', '30,000 كم/ث', '300,000 كم/ث'],
-                    answer: 3
+                    "question": "ما هي سرعة الضوء في الفراغ تقريبًا؟",
+                    "options": ["300 كم/ث", "3,000 كم/ث", "30,000 كم/ث", "300,000 كم/ث"],
+                    "answer": 3
                 },
                 {
-                    question: 'ما هو قانون نيوتن الأول المعروف باسم؟',
-                    options: ['قانون القصور الذاتي', 'قانون التسارع', 'قانون الفعل ورد الفعل', 'قانون الجذب العام'],
-                    answer: 0
+                    "question": "ما هو قانون نيوتن الأول المعروف باسم؟",
+                    "options": ["قانون القصور الذاتي", "قانون التسارع", "قانون الفعل ورد الفعل", "قانون الجذب العام"],
+                    "answer": 0
                 },
                 {
-                    question: 'ما هي الطاقة التي يكتسبها الجسم بسبب موضعه؟',
-                    options: ['الطاقة الحركية', 'الطاقة الكامنة', 'الطاقة الحرارية', 'الطاقة الكهربائية'],
-                    answer: 1
+                    "question": "ما هي الطاقة التي يكتسبها الجسم بسبب موضعه؟",
+                    "options": ["الطاقة الحركية", "الطاقة الكامنة", "الطاقة الحرارية", "الطاقة الكهربائية"],
+                    "answer": 1
                 },
                 {
-                    question: 'ما هو الجهاز المستخدم لقياس الضغط الجوي؟',
-                    options: ['البارومتر', 'الترمومتر', 'الأنيمومتر', 'الهيجرومتر'],
-                    answer: 0
+                    "question": "ما هو الجهاز المستخدم لقياس الضغط الجوي؟",
+                    "options": ["البارومتر", "الترمومتر", "الأنيمومتر", "الهيجرومتر"],
+                    "answer": 0
                 }
             ],
             'كيمياء': [
                 {
-                    question: 'ما هو الرمز الكيميائي للذهب؟',
-                    options: ['Go', 'Gd', 'Au', 'Ag'],
-                    answer: 2
+                    "question": "ما هو الرمز الكيميائي للذهب؟",
+                    "options": ["Go", "Gd", "Au", "Ag"],
+                    "answer": 2
                 },
                 {
-                    question: 'ما هو الغاز الذي يشكل حوالي 78% من الغلاف الجوي للأرض؟',
-                    options: ['الأكسجين', 'ثاني أكسيد الكربون', 'النيتروجين', 'الهيدروجين'],
-                    answer: 2
+                    "question": "ما هو الغاز الذي يشكل حوالي 78% من الغلاف الجوي للأرض؟",
+                    "options": ["الأكسجين", "ثاني أكسيد الكربون", "النيتروجين", "الهيدروجين"],
+                    "answer": 2
                 },
                 {
-                    question: 'ما هو الرقم الهيدروجيني للمحلول المتعادل؟',
-                    options: ['0', '7', '10', '14'],
-                    answer: 1
+                    "question": "ما هو الرقم الهيدروجيني للمحلول المتعادل؟",
+                    "options": ["0", "7", "10", "14"],
+                    "answer": 1
                 },
                 {
-                    question: 'ما هي العملية التي تتحول فيها المادة من الحالة الصلبة إلى الحالة الغازية مباشرة؟',
-                    options: ['التكثيف', 'التسامي', 'التجمد', 'التبخر'],
-                    answer: 1
+                    "question": "ما هي العملية التي تتحول فيها المادة من الحالة الصلبة إلى الحالة الغازية مباشرة؟",
+                    "options": ["التكثيف", "التسامي", "التجمد", "التبخر"],
+                    "answer": 1
                 },
                 {
-                    question: 'ما هو العنصر الكيميائي الذي عدده الذري 1؟',
-                    options: ['الهيليوم', 'الهيدروجين', 'الأكسجين', 'الكربون'],
-                    answer: 1
-                }
-            ],
-            'أحياء': [
-                {
-                    question: 'ما هي عضية الخلية المسؤولة عن إنتاج الطاقة؟',
-                    options: ['النواة', 'الميتوكوندريا', 'الريبوسوم', 'جهاز جولجي'],
-                    answer: 1
-                },
-                {
-                    question: 'ما هي العملية التي تنتج بها النباتات غذائها؟',
-                    options: ['التنفس', 'التمثيل الضوئي', 'التخمر', 'الانقسام المتساوي'],
-                    answer: 1
-                },
-                {
-                    question: 'ما هو عدد الكروموسومات في الإنسان؟',
-                    options: ['23', '46', '64', '92'],
-                    answer: 1
-                },
-                {
-                    question: 'ما هو الجزء المسؤول عن نقل الأكسجين في الدم؟',
-                    options: ['البلازما', 'الصفائح الدموية', 'خلايا الدم البيضاء', 'خلايا الدم الحمراء'],
-                    answer: 3
-                },
-                {
-                    question: 'ما هو أكبر عضو في جسم الإنسان؟',
-                    options: ['القلب', 'الكبد', 'الجلد', 'الدماغ'],
-                    answer: 2
-                }
-            ],
-            'لغة عربية': [
-                {
-                    question: 'ما هو الفعل الماضي من الفعل "يذهب"؟',
-                    options: ['ذهب', 'يذهب', 'اذهب', 'ذاهب'],
-                    answer: 0
-                },
-                {
-                    question: 'ما هو الجمع السالم لكلمة "مدرسة"؟',
-                    options: ['مدارس', 'مدرستان', 'مدرسات', 'مدرسي'],
-                    answer: 0
-                },
-                {
-                    question: 'ما هو المفعول به في الجملة: "قرأ الطالب الكتاب"؟',
-                    options: ['الطالب', 'قرأ', 'الكتاب', 'لا يوجد مفعول به'],
-                    answer: 2
-                },
-                {
-                    question: 'ما هي علامة إعراب الفاعل في الجملة: "جاء المعلمون"؟',
-                    options: ['الرفع بالضمة', 'الرفع بالواو', 'الرفع بالألف', 'الرفع بالياء'],
-                    answer: 1
-                },
-                {
-                    question: 'ما هو نوع الجملة: "السماء صافية"؟',
-                    options: ['جملة اسمية', 'جملة فعلية', 'جملة شرطية', 'جملة استفهامية'],
-                    answer: 0
+                    "question": "ما هو العنصر الكيميائي الذي عدده الذري 1؟",
+                    "options": ["الهيليوم", "الهيدروجين", "الأكسجين", "الكربون"],
+                    "answer": 1
                 }
             ]
         };
@@ -2577,7 +2293,7 @@
             videoTitle.textContent = title;
             
             // في التطبيق الحقيقي، هنا يتم تعيين مصدر الفيديو حسب videoId
-            lessonVideo.src = `videos/${videoId}.mp4`;
+            lessonVideo.src = `video/${videoId}.mp4`;
             lessonVideo.load();
         }
         
@@ -2604,9 +2320,44 @@
         }
         
         // ======== إدارة الاختبارات ========
+        function showTestLessons(subject) {
+            currentSubject = subject;
+            testsContainer.style.display = 'none';
+            testLessonsContainer.style.display = 'grid';
+            testLessonsContainer.innerHTML = '';
+            
+            // ملء دروس الاختبارات (5 دروس فقط)
+            for (let i = 0; i < 5; i++) {
+                const lessonBtn = document.createElement('button');
+                lessonBtn.className = 'lesson-btn';
+                lessonBtn.textContent = `الدرس ${i + 1}`;
+                
+                if (i === 0) {
+                    // الدرس الأول فقط يحتوي على الاختبار
+                    lessonBtn.onclick = () => startQuiz(subject);
+                } else {
+                    lessonBtn.onclick = () => alert('هذا الدرس لا يحتوي على اختبار، الرجاء اختيار الدرس الأول');
+                }
+                
+                testLessonsContainer.appendChild(lessonBtn);
+            }
+            
+            // زر العودة
+            const backButton = document.createElement('button');
+            backButton.className = 'back-to-subjects';
+            backButton.innerHTML = '<i class="fas fa-arrow-right"></i> العودة إلى الاختبارات';
+            backButton.onclick = backToTestsList;
+            testLessonsContainer.appendChild(backButton);
+        }
+        
+        function backToTestsList() {
+            testLessonsContainer.style.display = 'none';
+            testsContainer.style.display = 'grid';
+        }
+        
         function startQuiz(subject) {
             currentQuiz = subject;
-            testsContainer.style.display = 'none';
+            testLessonsContainer.style.display = 'none';
             quizContainer.style.display = 'block';
             resultContainer.style.display = 'none';
             
@@ -2732,20 +2483,72 @@
         }
         
         function editInfo(field) {
-            const valueElement = event.target.closest('.info-item').querySelector('.info-value');
-            const currentValue = valueElement.textContent;
+            // إخفاء جميع نماذج التعديل
+            document.querySelectorAll('.edit-form').forEach(form => {
+                form.style.display = 'none';
+            });
             
-            const newValue = prompt(`يرجى إدخال القيمة الجديدة لـ ${field}:`, currentValue);
-            if (newValue !== null) {
-                valueElement.textContent = newValue;
+            // إظهار نموذج التعديل المناسب
+            const form = document.getElementById(`${field}Form`);
+            form.style.display = 'block';
+            
+            // تعبئة الحقل بالبيانات الحالية
+            const valueElement = document.getElementById(`${field}Value`);
+            const inputField = document.getElementById(`${field}Input`);
+            
+            if (field === 'password') {
+                inputField.value = '';
+            } else {
+                inputField.value = valueElement.textContent;
+            }
+        }
+        
+        function saveInfo(field) {
+            const inputField = document.getElementById(`${field}Input`);
+            const valueElement = document.getElementById(`${field}Value`);
+            
+            if (inputField.value.trim() === '') {
+                alert('الرجاء إدخال قيمة');
+                return;
+            }
+            
+            valueElement.textContent = inputField.value;
+            
+            if (field === 'password') {
+                valueElement.textContent = '●●●●●●';
+                alert('تم تحديث كلمة المرور بنجاح');
+            } else {
                 alert('تم تحديث المعلومات بنجاح');
+            }
+            
+            // إخفاء نموذج التعديل
+            document.getElementById(`${field}Form`).style.display = 'none';
+        }
+        
+        function cancelEdit(field) {
+            document.getElementById(`${field}Form`).style.display = 'none';
+        }
+        
+        function deleteInfo(field) {
+            if (confirm('هل أنت متأكد أنك تريد حذف هذه المعلومة؟')) {
+                const valueElement = document.getElementById(`${field}Value`);
+                
+                if (field === 'password') {
+                    valueElement.textContent = '●●●●●●';
+                    alert('تم حذف كلمة المرور، سوف تحتاج إلى تعيين كلمة مرور جديدة عند تسجيل الدخول التالي');
+                } else {
+                    valueElement.textContent = 'غير محدد';
+                    alert('تم حذف المعلومة بنجاح');
+                }
+                
+                document.getElementById(`${field}Form`).style.display = 'none';
             }
         }
         
         // فتح ملف PDF
         function openPdf(pdfId) {
             // في التطبيق الحقيقي، هنا يتم فتح ملف PDF
-            window.open(`pdfs/${pdfId}.pdf`, '_blank');
+            window.open(`pdf/${pdfId}.pdf`, '_blank');
         }
         
         // ======== إدارة الصوت ========
@@ -2820,5 +2623,8 @@
             socialFooter.classList.add('show');
         });
     </script>
+    
+    <!-- أحبك يا مبرمجي العزيز -->
+    <div style="display: none;">أحبككك</div>
 </body>
 </html>
