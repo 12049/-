@@ -2038,7 +2038,7 @@
         </a>
         <a href="#" class="nav-btn" id="testsBtn">
             <i class="fas fa-clipboard-check"></i>
-            <span>الاختبارات</span>
+        مث<span>الاختبارات</span>
         </a>
         <a href="#" class="nav-btn active" id="homeBtn">
             <i class="fas fa-home"></i>
@@ -2056,7 +2056,7 @@
 
     <!-- مشغل الصوت الخلفي -->
     <audio id="backgroundMusic" loop>
-       <source src="m.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -2116,7 +2116,8 @@
         let wrongAnswers = 0;
         let selectedOption = null;
         let lastScrollPosition = 0;
-        let isMuted = false;
+        let isMuted = true; // الصوت مكتوم افتراضيًا
+        let isFirstInteraction = true; // لتفعيل الصوت بعد التفاعل الأول
         
         // بيانات الدروس
         const lessonsData = {
@@ -2553,6 +2554,16 @@
         
         // ======== إدارة الصوت ========
         function toggleMute() {
+            // إذا كان هذا أول تفاعل مع الصفحة
+            if (isFirstInteraction) {
+                isFirstInteraction = false;
+                backgroundMusic.play().then(() => {
+                    console.log('تم تشغيل الصوت بنجاح');
+                }).catch(e => {
+                    console.error('فشل تشغيل الصوت:', e);
+                });
+            }
+            
             isMuted = !isMuted;
             backgroundMusic.muted = isMuted;
             
@@ -2610,8 +2621,8 @@
                 });
             });
             
-            // بدء تشغيل الصوت الخلفي
-            backgroundMusic.play().catch(e => console.log('يجب التفاعل مع الصفحة لتشغيل الصوت'));
+            // كتم الصوت افتراضيًا
+            backgroundMusic.muted = true;
             
             // إضافة أحداث للأزرار
             muteBtn.addEventListener('click', toggleMute);
@@ -2628,5 +2639,3 @@
     <div style="display: none;">أحبككك</div>
 </body>
 </html>
-
-
