@@ -1465,7 +1465,7 @@
             gap: 5px;
         }
 
-        .view-btn {
+        .view-pdf-btn {
             background: var(--primary);
             color: white;
             padding: 8px 15px;
@@ -1870,7 +1870,7 @@
                     <button class="action-btn" onclick="downloadVideo()">
                         <i class="fas fa-download"></i> تحميل الفيديو
                     </button>
-                    <button class="action-btn" onclick="openPdf('m1')">
+                    <button class="action-btn" onclick="openPdf()">
                         <i class="fas fa-file-pdf"></i> فتح ملف PDF
                     </button>
                 </div>
@@ -2128,7 +2128,7 @@
                         <!-- نموذج تعديل الرقم السري -->
                         <div class="edit-form" id="passwordForm">
                             <div class="form-group">
-                                <label for="passwordInput">الرقم السري</label>
+                                <label for="طالبwordInput">الرقم السري</label>
                                 <input type="password" id="passwordInput" placeholder="أدخل الرقم السري الجديد">
                             </div>
                             <div class="form-actions">
@@ -2397,32 +2397,33 @@
         let selectedOption = null;
         let lastScrollPosition = 0;
         let isMuted = false;
+        let currentPdfId = '';
         
         // بيانات الدروس
         const lessonsData = {
             'رياضيات': [
-                { title: 'المقدمة في الرياضيات', videoId: 'm1' },
-                { title: 'الجبر الأساسي', videoId: 'm2' },
-                { title: 'المعادلات الخطية', videoId: 'm3' },
-                { title: 'الهندسة المستوية', videoId: 'm4' },
-                { title: 'حساب المثلثات', videoId: 'm5' },
-                { title: 'الإحصاء والاحتمالات', videoId: 'm6' }
+                { title: 'المقدمة في الرياضيات', videoId: 'm1', pdfId: 'math1' },
+                { title: 'الجبر الأساسي', videoId: 'm2', pdfId: 'math2' },
+                { title: 'المعادلات الخطية', videoId: 'm3', pdfId: 'math3' },
+                { title: 'الهندسة المستوية', videoId: 'm4', pdfId: 'math4' },
+                { title: 'حساب المثلثات', videoId: 'm5', pdfId: 'math5' },
+                { title: 'الإحصاء والاحتمالات', videoId: 'm6', pdfId: 'math6' }
             ],
             'فيزياء': [
-                { title: 'المقدمة في الفيزياء', videoId: 'p1' },
-                { title: 'الميكانيكا', videoId: 'p2' },
-                { title: 'الديناميكا الحرارية', videoId: 'p3' },
-                { title: 'الكهرومغناطيسية', videoId: 'p4' },
-                { title: 'الضوء والبصريات', videoId: 'p5' },
-                { title: 'الفيزياء الحديثة', videoId: 'p6' }
+                { title: 'المقدمة في الفيزياء', videoId: 'p1', pdfId: 'physics1' },
+                { title: 'الميكانيكا', videoId: 'p2', pdfId: 'physics2' },
+                { title: 'الديناميكا الحرارية', videoId: 'p3', pdfId: 'physics3' },
+                { title: 'الكهرومغناطيسية', videoId: 'p4', pdfId: 'physics4' },
+                { title: 'الضوء والبصريات', videoId: 'p5', pdfId: 'physics5' },
+                { title: 'الفيزياء الحديثة', videoId: 'p6', pdfId: 'physics6' }
             ],
             'كيمياء': [
-                { title: 'المقدمة في الكيمياء', videoId: 'c1' },
-                { title: 'الجدول الدوري', videoId: 'c2' },
-                { title: 'الروابط الكيميائية', videoId: 'c3' },
-                { title: 'التفاعلات الكيميائية', videoId: 'c4' },
-                { title: 'الكيمياء الحرارية', videoId: 'c5' },
-                { title: 'الكيمياء العضوية', videoId: 'c6' }
+                { title: 'المقدمة في الكيمياء', videoId: 'c1', pdfId: 'chemistry1' },
+                { title: 'الجدول الدوري', videoId: 'c2', pdfId: 'chemistry2' },
+                { title: 'الروابط الكيميائية', videoId: 'c3', pdfId: 'chemistry3' },
+                { title: 'التفاعلات الكيميائية', videoId: 'c4', pdfId: 'chemistry4' },
+                { title: 'الكيمياء الحرارية', videoId: 'c5', pdfId: 'chemistry5' },
+                { title: 'الكيمياء العضوية', videoId: 'c6', pdfId: 'chemistry6' }
             ]
         };
         
@@ -2627,7 +2628,7 @@
                 const lessonBtn = document.createElement('button');
                 lessonBtn.className = 'lesson-btn';
                 lessonBtn.textContent = `الدرس ${index + 1}`;
-                lessonBtn.onclick = () => playVideo(lesson.title, lesson.videoId);
+                lessonBtn.onclick = () => playVideo(lesson.title, lesson.videoId, lesson.pdfId);
                 lessonsContainer.appendChild(lessonBtn);
             });
             
@@ -2644,10 +2645,11 @@
             subjectsContainer.style.display = 'grid';
         }
         
-        function playVideo(title, videoId) {
+        function playVideo(title, videoId, pdfId) {
             lessonsContainer.style.display = 'none';
             videoContainer.style.display = 'block';
             videoTitle.textContent = title;
+            currentPdfId = pdfId;
             
             // في التطبيق الحقيقي، هنا يتم تعيين مصدر الفيديو حسب videoId
             lessonVideo.src = `video/${videoId}.mp4`;
@@ -2668,6 +2670,11 @@
         function downloadVideo() {
             // في التطبيق الحقيقي، هنا يتم تنزيل الفيديو
             alert('سيتم تنزيل الفيديو');
+        }
+        
+        function openPdf() {
+            // في التطبيق الحقيقي، هنا يتم فتح ملف PDF
+            window.open(`pdf/${currentPdfId}.pdf`, '_blank');
         }
         
         function backToLessons() {
@@ -2698,7 +2705,7 @@
                         <span><i class="fas fa-weight-hanging"></i> ${pdf.size}</span>
                     </div>
                     <div class="pdf-actions">
-                        <button class="view-btn" onclick="openPdf('${pdf.fileId}')">
+                        <button class="view-pdf-btn" onclick="openPdfFile('${pdf.fileId}')">
                             <i class="fas fa-eye"></i> معاينة
                         </button>
                         <button class="download-btn" onclick="downloadPdf('${pdf.fileId}')">
@@ -2715,7 +2722,7 @@
             document.querySelector('.library-container').style.display = 'grid';
         }
         
-        function openPdf(pdfId) {
+        function openPdfFile(pdfId) {
             // في التطبيق الحقيقي، هنا يتم فتح ملف PDF
             window.open(`pdf/${pdfId}.pdf`, '_blank');
         }
